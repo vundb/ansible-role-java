@@ -1,12 +1,12 @@
-Ansible Role to install java on gentoo systems.
+Ansible Role Java
 ===============================================
 
 This role will install java on target systems.
 
-Requirements
-------------
+Supported Distributions
+-----------------------
 
-None.
+- Gentoo
 
 Role Variables
 --------------
@@ -23,7 +23,7 @@ Example Playbook
 ```
 - hosts: all
   roles:
-    - role: java
+    - role: vundb-java
 ```
 
 License
