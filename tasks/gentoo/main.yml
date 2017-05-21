@@ -1,5 +1,14 @@
 ---
 
+# configure make.conf file
+
+- name: configure make.conf file
+  become: yes
+  lineinfile:
+    path: /etc/portage/make.conf
+    regexp: '^PYTHON_SINGLE_TARGET='
+    line: 'PYTHON_SINGLE_TARGET="python2_7 python3_2 python3_3"'
+
 # configure portage configuration and install required packages
 
 - include: ../../../vundb-portage/tasks/gentoo/main.yml
@@ -8,8 +17,6 @@
       - section: "package.use"
         file: "virtual-jre"
         entries:
-          - "virtual/jre headless-awt -alsa -cups"
-          - ">=x11-libs/cairo-1.14.6 X"
-          - ">=x11-libs/gdk-pixbuf-2.34.0 X"
+          - ">=x11-libs/cairo-1.14.8 X"
     portage_packages:
       - { package: "virtual/jre" }
