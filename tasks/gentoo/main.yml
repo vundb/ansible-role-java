@@ -11,12 +11,13 @@
 
 # configure portage configuration and install required packages
 
-- include: ../../../vundb-portage/tasks/gentoo/main.yml
+- import_tasks: ../../../vundb-portage/tasks/gentoo/main.yml
   vars:
     portage_configuration:
       - section: "package.use"
         file: "virtual-jre"
         entries:
           - ">=x11-libs/cairo-1.14.8 X"
+          - ">=app-text/ghostscript-gpl-9.21 cups"
     portage_packages:
       - { package: "virtual/jre" }
